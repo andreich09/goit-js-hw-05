@@ -22,14 +22,20 @@ class Car {
         this.speed = 0;
         this.isOn = false;
         this.distance = 0;
-        this.price = price;
+        this._price = price;
     }
 
     /*
      * Добавь геттер и сеттер для свойства price,
      * который будет работать с свойством цены автомобиля.
      */
+    get price() {
+        return this._price;
+    }
 
+    set price(price) {
+        this._price = price;
+    }
     /*
      * Добавь код для того чтобы завести автомобиль
      * Записывает в свойство isOn значение true
@@ -54,8 +60,8 @@ class Car {
      * не больше чем значение свойства maxSpeed
      */
     accelerate(value) {
-        if (this.maxSpeed >= value) {
-            this.speed = value;
+        if (this.maxSpeed >= this.speed + value) {
+            this.speed += value;
         }
     }
 
@@ -65,7 +71,7 @@ class Car {
      */
     decelerate(value) {
         let calc = this.speed;
-        if ((calc -= value) > 0) {
+        if (calc - value >= 0) {
             this.speed -= value;
         }
     }

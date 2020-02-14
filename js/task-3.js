@@ -8,12 +8,10 @@ class Storage {
 
     addItem = function(item) {
         this.items.push(item);
-        return this.items;
     };
 
     removeItem = function(item) {
         this.items.splice(this.items.indexOf(item), 1);
-        return this.items;
     };
 }
 
